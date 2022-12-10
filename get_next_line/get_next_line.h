@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtoure <dtoure@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 14:13:03 by dtoure            #+#    #+#             */
-/*   Updated: 2022/11/08 14:13:03 by dtoure           ###   ########.fr       */
+/*   Created: 2022/11/09 19:39:40 by dtoure            #+#    #+#             */
+/*   Updated: 2022/11/09 19:39:40 by dtoure           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# define BUFFER_SIZE 4096
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while ((s1[i] && s2[i]) && (i < n) && (s1[i] == s2[i]))
-	i++;
-	if (i == n)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
+size_t	ft_strlens(const char *s);
+char	*ft_callocs(size_t nmemb, size_t size);
+char	*get_next_line(int fd, int last);
+char	*ft_strjoins(char *s1, char *s2, size_t len);
+#endif
